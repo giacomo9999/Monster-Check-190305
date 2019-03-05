@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "semantic-ui-css/semantic.min.css";
-import { Container, Card, Header } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
+import Index from "./components/index.component";
+import Edit from "./components/edit.component";
+import Create from "./components/create.component";
 
 class App extends Component {
   render() {
@@ -19,16 +22,10 @@ class App extends Component {
         >
           MonsterCheck CRUD App
         </Header>
+        <Index />
+        <Edit />
+        <Create />
 
-        {/* <Card centered>
-          <Card.Content>
-            <Card.Header>Matthew Harris</Card.Header>
-            <Card.Meta>Co-Worker</Card.Meta>
-            <Card.Description>
-              Matthew is a pianist living in Nashville.
-            </Card.Description>
-          </Card.Content>
-        </Card> */}
       </Container>
     );
   }
