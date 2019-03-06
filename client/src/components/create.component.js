@@ -1,29 +1,34 @@
 import React, { Component } from "react";
 import { Container, Header, Form, Button } from "semantic-ui-react";
+import axios from "axios";
 const uuidv1 = require("uuid/v1");
 
 export default class Create extends Component {
   state = {
-    regionName: "",
+    regionName: "Name",
     id: "",
-    regionType: "",
+    regionType: "Desert",
     regionDifficulty: 0,
     regionMonstersAndFreq: []
   };
 
-  onChangeRegionName(e) {
+  onChangeRegionName = e => {
+    console.log("Changing region name...");
     this.setState({ regionName: e.target.value });
-  }
+    console.log(this.state.regionName);
+  };
 
   onChangeRegionType(e) {
+    console.log("Changing region type...");
     this.setState({ regionType: e.target.value });
   }
 
   onChangeRegionDifficulty(e) {
+    console.log("Changing region difficulty...");
     this.setState({ regionDifficulty: e.target.value });
   }
 
-  onSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     console.log(
       `The values are: ${this.state.regionName},${this.state.regionType},${
@@ -58,18 +63,33 @@ export default class Create extends Component {
         <Form>
           <Form.Field>
             <label>Region Name</label>
-            <input placeholder="Region Name" />
+            <input
+              type="text"
+              placeholder="Region Name"
+              defaultValue={this.state.regionName}
+              onChange={this.onChangeRegionName}
+            />
           </Form.Field>
           <Form.Field>
             <label>Region Type</label>
-            <input placeholder="Region Type" />
+            <input
+              type="text"
+              placeholder="Region Type"
+              defaultValue={this.state.regionType}
+              onChange={this.onChangeRegionType}
+            />
           </Form.Field>
           <Form.Field>
             <label>Region Difficulty</label>
-            <input placeholder="Difficulty" />
+            <input
+              type="text"
+              placeholder="Difficulty"
+              defaultValue={this.state.regionDifficulty}
+              onChange={this.onChangeRegionDifficulty}
+            />
           </Form.Field>
 
-          <Button type="submit">Submit</Button>
+          <Button onClick={this.handleSubmit}>Submit</Button>
         </Form>
       </Container>
     );
