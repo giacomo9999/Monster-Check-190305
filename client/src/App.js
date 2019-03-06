@@ -10,6 +10,7 @@ class App extends Component {
       <div>
         <MenuBar />
         <Container text>
+        
           <br />
           <Header
             as="h2"

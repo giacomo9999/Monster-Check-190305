@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Menu } from "semantic-ui-react";
 
-const FixedMenuLayout = () => (
+const MenuBar = () => (
   <div>
     <Menu fixed="top" inverted>
       <Container>
@@ -16,4 +16,4 @@ const FixedMenuLayout = () => (
   </div>
 );
 
-export default FixedMenuLayout;
+export default MenuBar;
