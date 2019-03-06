@@ -5,6 +5,7 @@ require("dotenv").config();
 const port = process.env.PORT;
 const cors = require("cors");
 const mongoose = require("mongoose");
+const encTableRoute = require("./routes/EncTableRouter");
 
 mongoose.Promise = global.Promise;
 mongoose

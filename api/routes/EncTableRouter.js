@@ -2,7 +2,7 @@ const express = require("express");
 const encTableRoutes = express.Router();
 
 // require encounter table schema model
-let EncTable = require("./encounterTable.model");
+let EncTable = require("../models/encounterTable.model");
 
 // define new table route
 encTableRoutes.route("/add").post((req, res) => {
