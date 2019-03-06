@@ -1,15 +1,24 @@
 import React, { Component } from "react";
-import { Card } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 
-export default class Index extends Component {
+export default class Edit extends Component {
   render() {
     return (
-      <Card centered>
-        <Card.Content>
-          <Card.Header>Edit Component</Card.Header>
-          <Card.Description>I am the Edit component.</Card.Description>
-        </Card.Content>
-      </Card>
+      <Container text>
+        <br />
+        <Header
+          as="h2"
+          textAlign="center"
+          style={{
+            fontSize: "2em",
+            fontWeight: "normal",
+            marginBottom: 0,
+            marginTop: "3em"
+          }}
+        >
+          Welcome to Edit
+        </Header>
+      </Container>
     );
   }
 }

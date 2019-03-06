@@ -9,22 +9,7 @@ class App extends Component {
     return (
       <div>
         <MenuBar />
-        <Container text>
         
-          <br />
-          <Header
-            as="h2"
-            textAlign="center"
-            style={{
-              fontSize: "2em",
-              fontWeight: "normal",
-              marginBottom: 0,
-              marginTop: "3em"
-            }}
-          >
-            MonsterCheck CRUD App
-          </Header>
-        </Container>
       </div>
     );
   }
