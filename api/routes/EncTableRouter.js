@@ -6,8 +6,14 @@ let EncTable = require("../models/encounterTable.model");
 
 // define new table route
 encTableRoutes.route("/add").post((req, res) => {
+  // const list = ["blah", "blah2", "blah3"];
+  // const testBody=req.body
+  // res.json(testBody);
+  console.log("TestRouter: 'Add' Route successfully checked");
   let encTable = new EncTable(req.body);
-  EncTable.save()
+  // res.json(encTable);
+  encTable
+    .save()
     .then(encTable => {
       res
         .status(200)

@@ -13,30 +13,45 @@ export default class Create extends Component {
   };
 
   onChangeRegionName = e => {
-    console.log("Changing region name...");
+    // console.log("Changing region name...");
     this.setState({ regionName: e.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   onChangeRegionType = e => {
-    console.log("Changing region type...");
+    // console.log("Changing region type...");
     this.setState({ regionType: e.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   onChangeRegionDifficulty = e => {
-    console.log("Changing region difficulty...", e.target.value);
+    // console.log("Changing region difficulty...", e.target.value);
     this.setState({ regionDifficulty: e.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   handleSubmit = e => {
     e.preventDefault();
     console.log(
-      `Submitting state: `, this.state.regionName,
-      this.state.regionType,
-      this.state.regionDifficulty
+      `React Create Component submitting add: `,
+      this.state.regionName,
     );
+    const newTable = {
+      regionName: this.state.regionName,
+      id: uuidv1(),
+      regionType: this.state.regionType,
+      regionDifficulty: this.state.regionDifficulty,
+      regionMonstersAndFreq: [
+        { freq: -999, name: "placeholder" },
+        { freq: -998, name: "placeholder 2" }
+      ]
+    };
+
+    axios
+      .post("/encTable/add", newTable)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+
     this.setState({
       regionName: "",
       id: "",
