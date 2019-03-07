@@ -5,9 +5,9 @@ const uuidv1 = require("uuid/v1");
 
 export default class Create extends Component {
   state = {
-    regionName: "Name",
+    regionName: "",
     id: "",
-    regionType: "Desert",
+    regionType: "",
     regionDifficulty: 0,
     regionMonstersAndFreq: []
   };
@@ -15,25 +15,27 @@ export default class Create extends Component {
   onChangeRegionName = e => {
     console.log("Changing region name...");
     this.setState({ regionName: e.target.value });
-    console.log(this.state.regionName);
+    console.log(this.state);
   };
 
-  onChangeRegionType(e) {
+  onChangeRegionType = e => {
     console.log("Changing region type...");
     this.setState({ regionType: e.target.value });
-  }
+    console.log(this.state);
+  };
 
-  onChangeRegionDifficulty(e) {
-    console.log("Changing region difficulty...");
+  onChangeRegionDifficulty = e => {
+    console.log("Changing region difficulty...", e.target.value);
     this.setState({ regionDifficulty: e.target.value });
-  }
+    console.log(this.state);
+  };
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     console.log(
-      `The values are: ${this.state.regionName},${this.state.regionType},${
-        this.state.regionDiffculty
-      }`
+      `Submitting state: `, this.state.regionName,
+      this.state.regionType,
+      this.state.regionDifficulty
     );
     this.setState({
       regionName: "",
@@ -42,7 +44,7 @@ export default class Create extends Component {
       regionDifficulty: 0,
       regionMonstersAndFreq: []
     });
-  }
+  };
 
   render() {
     return (
