@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Header } from "semantic-ui-react";
+import OneRow from "./oneRow.component";
 
 export default class Edit extends Component {
   render() {

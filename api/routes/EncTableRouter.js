@@ -4,20 +4,16 @@ const encTableRoutes = express.Router();
 // require encounter table schema model
 let EncTable = require("../models/encounterTable.model");
 
-// define new table route
+// define 'new table' route
 encTableRoutes.route("/add").post((req, res) => {
-  // const list = ["blah", "blah2", "blah3"];
-  // const testBody=req.body
-  // res.json(testBody);
   console.log("TestRouter: 'Add' Route successfully checked");
   let encTable = new EncTable(req.body);
-  // res.json(encTable);
   encTable
     .save()
     .then(encTable => {
       res
         .status(200)
-        .json({ encTable: "MonsterBase: Table saved successfully." });
+        .json({ encTable_says: "MonsterBase: Table saved successfully." });
     })
     .catch(err => {
       res.status(400).send("MonsterBase: Unable to save to DB.");
