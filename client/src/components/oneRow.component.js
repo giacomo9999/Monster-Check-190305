@@ -1,26 +1,30 @@
+// Child of
+
 import React, { Component } from "react";
-import { Table, Button } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default class OneRow extends Component {
+  delete = () => {
+    axios
+      .get("/encTable/delete/" + this.props.obj._id)
+      .then(() => console.log("Entry Deleted"))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Table.Row>
         <Table.Cell>{this.props.obj.regionName}</Table.Cell>
         <Table.Cell>{this.props.obj.regionType}</Table.Cell>
         <Table.Cell>{this.props.obj.regionDifficulty}</Table.Cell>
-        <Table.Cell color="orange" selectable>
-          <a href="#">Edit</a>
-        </Table.Cell>
         <Table.Cell selectable>
-          <a href="#">Delete</a>
+          <Link to={"/edit/" + this.props.obj._id}>Edit</Link>
         </Table.Cell>
-
-        {/* <Button compact size="small" color="teal">
-          Edit
-        </Button>
-        <Button compact size="small" color="teal">
+        <Table.Cell selectable onClick={this.delete}>
           Delete
-        </Button> */}
+        </Table.Cell>
       </Table.Row>
     );
   }

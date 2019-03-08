@@ -6,7 +6,7 @@ let EncTable = require("../models/encounterTable.model");
 
 // define 'new table' route
 encTableRoutes.route("/add").post((req, res) => {
-  console.log("TestRouter: 'Add' Route successfully checked");
+  console.log("Router: Attempting to add new table ");
   let encTable = new EncTable(req.body);
   encTable
     .save()
@@ -31,8 +31,9 @@ encTableRoutes.route("/").get((req, res) => {
   });
 });
 
-// define edit route
+// define edit route, AKA 'get one.'
 encTableRoutes.route("/edit/:id").get((req, res) => {
+  console.log("Router: Attempting to edit existing table ");
   let id = req.params.id;
   EncTable.findById(id, (err, encTable) => {
     res.json(encTable);
@@ -41,6 +42,7 @@ encTableRoutes.route("/edit/:id").get((req, res) => {
 
 // define update route
 encTableRoutes.route("/update/:id").post((req, res) => {
+  console.log("Router: Attempting to update table params on DB");
   EncTable.findById(req.params.id, (err, encTable) => {
     if (!encTable) {
       res.status(404).send("MonsterBase: Table not found.");
@@ -62,6 +64,7 @@ encTableRoutes.route("/update/:id").post((req, res) => {
 
 // define delete route
 encTableRoutes.route("/delete/:id").get((req, res) => {
+  console.log("Router: Attempting to delete table from DB");
   EncTable.findByIdAndRemove({ _id: req.params.id }, (err, encTable) => {
     if (err) {
       res.json(err);

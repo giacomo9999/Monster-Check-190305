@@ -34,7 +34,7 @@ export default class Create extends Component {
     e.preventDefault();
     console.log(
       `React Create Component submitting add: `,
-      this.state.regionName,
+      this.state.regionName
     );
     const newTable = {
       regionName: this.state.regionName,
